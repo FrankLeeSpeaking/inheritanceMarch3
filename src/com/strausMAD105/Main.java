@@ -9,8 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         int input = 0;
-        //NumberFormat nf = NumberFormat.getNumberInstance();// -------- formatter object for number display with commas
-
+//------------- Main Menu
         while (input == 0) {
             System.out.println("1.) For Commercial property: ");
             System.out.println("2.) For Residential property: ");
@@ -19,15 +18,15 @@ public class Main {
             int pick = keyboard.nextInt();
             switch (pick) {
                 case 1:
-                    commercialClient();
-                    input = 1;
+                    commercialClient();  //---------- Assign object variable to method commercial
+                    input = 1;//------------- Increment input to break while loop
                     break;
                 case 2:
-                    residentialClient();
-                    input = 1;
+                    residentialClient();  //---------- Assign object variable to method residential
+                    input = 1;  //------------- Increment input to break while loop
                     break;
                 case 3:
-                    System.out.println("Thank you for your business!");
+                    System.out.println("End of program!");
                     input = 1;
                     break;
                 default:
@@ -36,6 +35,7 @@ public class Main {
         }//-----End while
     } //---END method main
 
+// ------------------ User input for commercial
     public static void commercialClient(){
         Boolean multi;
         String discount;
@@ -51,8 +51,8 @@ public class Main {
             System.out.print("Does this account have more than one property under contract? (y or n)");
             discount  = keyboard.next();
         }while (!discount.equalsIgnoreCase("y") && !discount.equalsIgnoreCase("n"));
-        if (discount.equalsIgnoreCase("y")){
-            multi = true;
+        if (discount.equalsIgnoreCase("y")){// ----- raeds String input and ignores case sensitivity
+            multi = true; // boolean for discount
         }
         else {
             multi = false;
@@ -61,8 +61,8 @@ public class Main {
         String propertyName = keyboard.next();
         System.out.print("Enter the total area under contract in sq.ft.: ");
         double totalArea = keyboard.nextDouble();
-        Commercial client = new Commercial(name, address, phone, multi, propertyName, totalArea);
-        client.calculateWeekly();
+        Commercial client = new Commercial(name, address, phone, multi, propertyName, totalArea); // -- new class object
+        client.calculateWeekly();//--- calculate and display
 
 
 
